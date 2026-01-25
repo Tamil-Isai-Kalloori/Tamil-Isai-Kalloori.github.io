@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on My Hugo Site</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content in Home on My Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/awards/paragraphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/awards/paragraphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/awards/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/awards/tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/isai_vizha_paragraphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/isai_vizha_paragraphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/pann_research/paragraphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/pann_research/paragraphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/pann_research/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/pann_research/tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/special_guest/paragraphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/special_guest/paragraphs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/isai_vizha/special_guest/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/special_guest/tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>//localhost:1313/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Events</title>
+      <link>//localhost:1313/home/events/events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/home/events/events/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Navbar</title>
+      <link>//localhost:1313/navbar/navbar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/navbar/navbar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slider</title>
+      <link>//localhost:1313/home/slider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/home/slider/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Timeline</title>
+      <link>//localhost:1313/isai_vizha/timeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/isai_vizha/timeline/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

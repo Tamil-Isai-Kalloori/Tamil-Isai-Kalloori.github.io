@@ -1,0 +1,343 @@
+
+###############################################################################################################
+## For local testing     #
+# npx decap-server       # 
+# local_backend: true    #
+##########################
+#
+#
+# auth making reference : https://github.com/nuzulul/decap-cms-google-apps-script/tree/main
+#
+###############################################################################################################
+backend:
+  name: github
+  repo : Tamil-Isai-Kalloori/website
+  branch: main  # or whatever your branch is
+  site_domain: https://studious-carnival-5g576qrpp5g93q5j-1313.app.github.dev/  # your website domain for preview
+  base_url: https://studious-carnival-5g576qrpp5g93q5j-1313.app.github.dev/ # PKCE client.html hostname (just the base domain, no path)
+  auth_endpoint: /admin/client.html # PKCE client.html path
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "settings"
+        label: "Top Bar Settings"
+        file: "data/settings.yaml"
+        fields:
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Working Days", name: "hours_days", widget: "string" }
+          - { label: "Working Hours", name: "hours_time", widget: "string" }
+#####################################################
+
+######## Home Page ################################
+
+##################################################
+
+## Home Slider Section 
+  - name: "slider"
+    label: "Home Slider"
+    folder: "content/home"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Slides"
+        name: "slides"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Heading", name: "heading", widget: "string" }
+  
+  - name: "events"
+    label: "Home / Events Section"
+    files:
+      - label: "Events"
+        name: "events"
+        file: "content/home/events/events.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+
+          - label: "Events List"
+            name: "events"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Description", name: "description", widget: "text" }
+
+
+# History Page Configuration
+  - name: "history"
+    label: "History Page"
+    folder: "content/history"
+    create: false
+    slug: "index"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Hero Image", name: "hero_image", widget: "image" }
+      - { label: "Hero Title", name: "hero_title", widget: "string" }
+      - label: "Breadcrumbs"
+        name: "breadcrumbs"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "URL", name: "url", widget: "string", required: false }
+
+      - { label: "About Subheading", name: "about_subheading", widget: "string" }
+      - { label: "About Title", name: "about_title", widget: "string" }
+
+      # ⭐ Dynamic ABOUT SECTIONS
+      - label: "About Sections"
+        name: "about_sections"
+        widget: "list"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+
+          # ⭐ Reverse toggle (for alternating layout)
+          - label: "Reverse Layout (image left)"
+            name: "reverse"
+            widget: "boolean"
+            default: false
+
+      - { label: "About Video", name: "about_video", widget: "string", required: false }
+
+      - label: "Stats"
+        name: "stats"
+        widget: "list"
+        fields:
+          - { label: "Number", name: "number", widget: "number" }
+          - { label: "Label", name: "label", widget: "string" }
+      - { label: "Bottom Image", name: "bottom_banner", widget: "image" }
+
+# Navbar configuration for Decap CMS
+  - name: "navbar"
+    label: "Navbar"
+    files:
+      - label: "Navbar"
+        name: "navbar"
+        file: "content/navbar/navbar.md"
+        format: yaml
+        fields:
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - label: "Menu Items"
+            name: "menu"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "CTA", name: "cta", widget: "boolean", required: false }
+
+# Isai Vizha page
+  - name: "Isai_Vizha"
+    label: "Isai Vizha"
+    files: 
+      - label: "Hero Section"
+        name: "hero_section"
+        file: "content/isai_vizha/_index.md"
+        format: "yaml"
+        fields:
+          - { label: "Image", name: "hero_image", widget: "image" }
+          - { label: "Title", name: "hero_title", widget: "string" }
+          - label: "Breadcrumbs"
+            name: "breadcrumbs"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+
+      - label: "Time Line"
+        name: "timeline"
+        file: "content/isai_vizha/timeline.md"
+        format: "yaml"
+        fields:
+          - { label: "Month", name: "month", widget:"string"}
+          - label: "Events"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - { label: "Date", name: "date", widget: "string" }
+              - label: "Schedule"
+                name: "schedule"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Time", name: "time", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "string" }
+                  
+      - label: "Description Paragraphs"
+        name: "isai_vizha_paragraphs"
+        file: "content/isai_vizha/isai_vizha_paragraphs.md"
+        format: "frontmatter"
+        fields:
+          - label: "Description Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Link", name: "link", widget: "string" }
+## pann research
+  - name: "Pann_Research"
+    label: "Pann Research"
+    files: 
+      - label: "Pann isai Hero Section"
+        name: "pann_isai_hero_section"
+        file: "content/isai_vizha/pann_research/_index.md"
+        format: "yaml"
+        fields:
+          - { label: "Image", name: "hero_image", widget: "image" }
+          - { label: "Title", name: "hero_title", widget: "string" }
+          - label: "Breadcrumbs"
+            name: "breadcrumbs"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+      - label: "Description"
+        name: "pann_research_paragraphs"
+        file: "content/isai_vizha/pann_research/paragraphs.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Image", name: "research_image", widget: "image" }
+          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
+ 
+      - label: "Table Data"
+        name: "pann_research_table_data"
+        file: "content/isai_vizha/pann_research/tables.md"
+        format: "frontmatter"
+        fields:
+          - label: "Tables"
+            name: "tables"
+            widget: "list"
+            fields:
+              - label: "Table Name"
+                name: "name"
+                widget: "string"
+
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - label: "Pann"
+                    name: "pann"
+                    widget: "string"
+                  - label: "Ragam"
+                    name: "ragam"
+                    widget: "string"
+## awards
+  - name: "Isai Vizha Awards"
+    label: "Isai Vizha Awards"
+    files: 
+      - label: "Hero Section"
+        name: "awards_hero_section"
+        file: "content/isai_vizha/awards/_index.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Image", name: "hero_image", widget: "image" }
+          - { label: "Title", name: "hero_title", widget: "string" }
+          - label: "Breadcrumbs"
+            name: "breadcrumbs"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+ 
+      - label: "Description"
+        name: "awards_paragraphs"
+        file: "content/isai_vizha/awards/paragraphs.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
+ 
+      - label: "Table Data"
+        name: "awards_table_data"
+        file: "content/isai_vizha/awards/tables.md"
+        format: "frontmatter"
+        fields:
+          - label: "Tables"
+            name: "tables"
+            widget: "list"
+            fields:
+              - label: "Table Name"
+                name: "name"
+                widget: "string"
+
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - label: "Name"
+                    name: "name"
+                    widget: "string"
+                  - label: "Year"
+                    name: "year"
+                    widget: "string"
+
+## isai vizha special guest
+  - name: "Isai Vizha Special Guest"
+    label: "Isai Vizha Spcial Guest"
+    files: 
+      - label: "Hero Section"
+        name: "sg_hero_section"
+        file: "content/isai_vizha/special_guest/_index.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Image", name: "hero_image", widget: "image" }
+          - { label: "Title", name: "hero_title", widget: "string" }
+          - label: "Breadcrumbs"
+            name: "breadcrumbs"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+ 
+      - label: "Description"
+        name: "sg_paragraphs"
+        file: "content/isai_vizha/special_guest/paragraphs.md"
+        format: "frontmatter"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
+ 
+      - label: "Table Data"
+        name: "sg_table_data"
+        file: "content/isai_vizha/special_guest/tables.md"
+        format: "frontmatter"
+        fields:
+          - label: "Tables"
+            name: "tables"
+            widget: "list"
+            fields:
+              - label: "Table Name"
+                name: "name"
+                widget: "string"
+
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - label: "Name"
+                    name: "name"
+                    widget: "string"
+                  - label: "Year"
+                    name: "year"
+                    widget: "string"
