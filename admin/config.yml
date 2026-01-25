@@ -17,7 +17,7 @@ backend:
   base_url: https://studious-carnival-5g576qrpp5g93q5j-1313.app.github.dev/ # PKCE client.html hostname (just the base domain, no path)
   auth_endpoint: /admin/client.html # PKCE client.html path
 
-media_folder: "static/uploads"
+media_folder: "/uploads"
 public_folder: "/uploads"
 
 
