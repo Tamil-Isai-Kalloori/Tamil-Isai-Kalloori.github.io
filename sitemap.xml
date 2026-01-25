@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
     <lastmod>2025-11-23T06:00:55+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/awards/paragraphs/</loc>
+    <loc>/isai_vizha/awards/paragraphs/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/awards/tables/</loc>
+    <loc>/isai_vizha/awards/tables/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/isai_vizha_paragraphs/</loc>
+    <loc>/isai_vizha/isai_vizha_paragraphs/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/pann_research/paragraphs/</loc>
+    <loc>/isai_vizha/pann_research/paragraphs/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/pann_research/tables/</loc>
+    <loc>/isai_vizha/pann_research/tables/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/special_guest/paragraphs/</loc>
+    <loc>/isai_vizha/special_guest/paragraphs/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/special_guest/tables/</loc>
+    <loc>/isai_vizha/special_guest/tables/</loc>
   </url><url>
-    <loc>//localhost:1313/readme/</loc>
+    <loc>/readme/</loc>
   </url><url>
-    <loc>//localhost:1313/top_bar/top_bar/</loc>
+    <loc>/top_bar/top_bar/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/awards/</loc>
+    <loc>/isai_vizha/awards/</loc>
   </url><url>
-    <loc>//localhost:1313/blog/</loc>
+    <loc>/blog/</loc>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/home/events/events/</loc>
+    <loc>/home/events/events/</loc>
   </url><url>
-    <loc>//localhost:1313/history/</loc>
+    <loc>/history/</loc>
   </url><url>
-    <loc>//localhost:1313/home/</loc>
+    <loc>/home/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/</loc>
+    <loc>/isai_vizha/</loc>
   </url><url>
-    <loc>//localhost:1313/navbar/navbar/</loc>
+    <loc>/navbar/navbar/</loc>
   </url><url>
-    <loc>//localhost:1313/navbar/</loc>
+    <loc>/navbar/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/pann_research/</loc>
+    <loc>/isai_vizha/pann_research/</loc>
   </url><url>
-    <loc>//localhost:1313/home/slider/</loc>
+    <loc>/home/slider/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/special_guest/</loc>
+    <loc>/isai_vizha/special_guest/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>/tags/</loc>
   </url><url>
-    <loc>//localhost:1313/thol_isai_kalanjiyam/</loc>
+    <loc>/thol_isai_kalanjiyam/</loc>
   </url><url>
-    <loc>//localhost:1313/isai_vizha/timeline/</loc>
+    <loc>/isai_vizha/timeline/</loc>
   </url><url>
-    <loc>//localhost:1313/top_bar/</loc>
+    <loc>/top_bar/</loc>
   </url>
 </urlset>
