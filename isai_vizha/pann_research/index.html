@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Appetizer - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8" />
     <meta
@@ -155,19 +155,23 @@
           </li>
         
           <li class="nav-item  ">
-            <a href='/blog/' class="nav-link">Blog</a>
+            <a href='/thol_isai_kalanjiyam/' class="nav-link">Thol Isai Kalanjiyam</a>
           </li>
         
           <li class="nav-item  ">
-            <a href='/contact/' class="nav-link">Contact</a>
+            <a href='/gallery/' class="nav-link">Gallery</a>
           </li>
         
           <li class="nav-item  ">
-            <a href='/blog-single/' class="nav-link">Blog single</a>
+            <a href='/library/' class="nav-link">Library</a>
+          </li>
+        
+          <li class="nav-item  ">
+            <a href='/members/' class="nav-link">Members</a>
           </li>
         
           <li class="nav-item  cta">
-            <a href='/reservation/' class="nav-link">Book a table</a>
+            <a href='/courses/' class="nav-link">Courses</a>
           </li>
         
       </ul>
@@ -517,8 +521,14 @@ thead th {
   }
 
   function tamilSort(a, b) {
-    return a.localeCompare(b, "ta", { sensitivity: "base" });
+    if (!isNaN(a) && !isNaN(b)) {
+      return Number(a) - Number(b);
+    }
+
+    return (a ?? "").toString()
+      .localeCompare((b ?? "").toString(), "ta", { sensitivity: "base" });
   }
+
 
   
   
