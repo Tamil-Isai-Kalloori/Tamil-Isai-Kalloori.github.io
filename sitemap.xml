@@ -21,6 +21,8 @@
   </url><url>
     <loc>//localhost:1313/readme/</loc>
   </url><url>
+    <loc>//localhost:1313/top_bar/top_bar/</loc>
+  </url><url>
     <loc>//localhost:1313/isai_vizha/awards/</loc>
   </url><url>
     <loc>//localhost:1313/blog/</loc>
@@ -50,5 +52,7 @@
     <loc>//localhost:1313/thol_isai_kalanjiyam/</loc>
   </url><url>
     <loc>//localhost:1313/isai_vizha/timeline/</loc>
+  </url><url>
+    <loc>//localhost:1313/top_bar/</loc>
   </url>
 </urlset>
