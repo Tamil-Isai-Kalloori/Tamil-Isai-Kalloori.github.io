@@ -45,7 +45,7 @@ collections:
 ## Home Slider Section 
   - name: "slider"
     label: "Home Slider"
-    folder: "content/home"
+    folder: "home"
     create: true
     slug: "{{slug}}"
     fields:
@@ -62,7 +62,7 @@ collections:
     files:
       - label: "Events"
         name: "events"
-        file: "content/home/events/events.md"
+        file: "home/events/events.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
 
@@ -81,7 +81,7 @@ collections:
 # History Page Configuration
   - name: "history"
     label: "History Page"
-    folder: "content/history"
+    folder: "history"
     create: false
     slug: "index"
     fields:
@@ -130,7 +130,7 @@ collections:
     files:
       - label: "Navbar"
         name: "navbar"
-        file: "content/navbar/navbar.md"
+        file: "navbar/navbar.md"
         format: yaml
         fields:
           - { label: "Logo", name: "logo", widget: "image", required: false }
@@ -148,7 +148,7 @@ collections:
     files: 
       - label: "Hero Section"
         name: "hero_section"
-        file: "content/isai_vizha/_index.md"
+        file: "isai_vizha/_index.md"
         format: "yaml"
         fields:
           - { label: "Image", name: "hero_image", widget: "image" }
@@ -163,7 +163,7 @@ collections:
 
       - label: "Time Line"
         name: "timeline"
-        file: "content/isai_vizha/timeline.md"
+        file: "isai_vizha/timeline.md"
         format: "yaml"
         fields:
           - { label: "Month", name: "month", widget:"string"}
@@ -183,7 +183,7 @@ collections:
                   
       - label: "Description Paragraphs"
         name: "isai_vizha_paragraphs"
-        file: "content/isai_vizha/isai_vizha_paragraphs.md"
+        file: "isai_vizha/isai_vizha_paragraphs.md"
         format: "frontmatter"
         fields:
           - label: "Description Paragraphs"
@@ -199,7 +199,7 @@ collections:
     files: 
       - label: "Pann isai Hero Section"
         name: "pann_isai_hero_section"
-        file: "content/isai_vizha/pann_research/_index.md"
+        file: "isai_vizha/pann_research/_index.md"
         format: "yaml"
         fields:
           - { label: "Image", name: "hero_image", widget: "image" }
@@ -213,7 +213,7 @@ collections:
 
       - label: "Description"
         name: "pann_research_paragraphs"
-        file: "content/isai_vizha/pann_research/paragraphs.md"
+        file: "isai_vizha/pann_research/paragraphs.md"
         format: "frontmatter"
         fields:
           - { label: "Image", name: "research_image", widget: "image" }
@@ -221,7 +221,7 @@ collections:
  
       - label: "Table Data"
         name: "pann_research_table_data"
-        file: "content/isai_vizha/pann_research/tables.md"
+        file: "isai_vizha/pann_research/tables.md"
         format: "frontmatter"
         fields:
           - label: "Tables"
@@ -248,7 +248,7 @@ collections:
     files: 
       - label: "Hero Section"
         name: "awards_hero_section"
-        file: "content/isai_vizha/awards/_index.md"
+        file: "isai_vizha/awards/_index.md"
         format: "frontmatter"
         fields:
           - { label: "Image", name: "hero_image", widget: "image" }
@@ -262,7 +262,7 @@ collections:
  
       - label: "Description"
         name: "awards_paragraphs"
-        file: "content/isai_vizha/awards/paragraphs.md"
+        file: "isai_vizha/awards/paragraphs.md"
         format: "frontmatter"
         fields:
           - { label: "Image", name: "image", widget: "image" }
@@ -270,7 +270,7 @@ collections:
  
       - label: "Table Data"
         name: "awards_table_data"
-        file: "content/isai_vizha/awards/tables.md"
+        file: "isai_vizha/awards/tables.md"
         format: "frontmatter"
         fields:
           - label: "Tables"
@@ -298,7 +298,7 @@ collections:
     files: 
       - label: "Hero Section"
         name: "sg_hero_section"
-        file: "content/isai_vizha/special_guest/_index.md"
+        file: "isai_vizha/special_guest/_index.md"
         format: "frontmatter"
         fields:
           - { label: "Image", name: "hero_image", widget: "image" }
@@ -312,7 +312,7 @@ collections:
  
       - label: "Description"
         name: "sg_paragraphs"
-        file: "content/isai_vizha/special_guest/paragraphs.md"
+        file: "isai_vizha/special_guest/paragraphs.md"
         format: "frontmatter"
         fields:
           - { label: "Image", name: "image", widget: "image" }
@@ -320,7 +320,7 @@ collections:
  
       - label: "Table Data"
         name: "sg_table_data"
-        file: "content/isai_vizha/special_guest/tables.md"
+        file: "isai_vizha/special_guest/tables.md"
         format: "frontmatter"
         fields:
           - label: "Tables"
