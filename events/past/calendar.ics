@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:கடந்த நிகழ்வுகள்
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-10@tamilisaisangam.in
+DTSTAMP:20260930T183000Z
+DTSTART:20261010T123000Z
+DTEND:20261010T143000Z
+SUMMARY:மாதாந்திரப் பண்ணிசை நிக
+ ழ்ச்சி (அக்டோபர்)
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:பண்டைய தமிழ்ப் பண்களைப
+ ் பாடிக் காட்டும் மாதாந்தி
+ ர நிகழ்ச்சி\, 10 அக்டோபர் 2026.\nக
+ ட்டணம்: கட்டணம் இல்லை. அனைவர
+ ும் வருக.
+URL:https://tamilisaisangam.in/events/pann-isai-recital-2026-10/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-09@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART:20260919T123000Z
+DTEND:20260919T143000Z
+SUMMARY:மாதாந்திரப் பண்ணிசை நிக
+ ழ்ச்சி (செப்டம்பர்)
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:பண்டைய தமிழ்ப் பண்களைப
+ ் பாடிக் காட்டும் மாதாந்தி
+ ர நிகழ்ச்சி\, 19 செப்டம்பர் 2026.\
+ nகட்டணம்: கட்டணம் இல்லை. அனை
+ வரும் வருக.
+URL:https://tamilisaisangam.in/events/pann-isai-recital-2026-09/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-students-annual-day-2026@tamilisaisangam.in
+DTSTAMP:20260809T183000Z
+DTSTART:20260829T113000Z
+DTEND:20260829T143000Z
+SUMMARY:மாணவர் ஆண்டு விழா இசை நிக
+ ழ்ச்சி
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:தமிழ் இசைக் கல்லூரி மாண
+ வர்கள் பங்கேற்ற ஆண்டு விழா 
+ இசை நிகழ்ச்சி\, 2026 ஆகஸ்ட் 29.\nக
+ ட்டணம்: கட்டணம் இல்லை. அனைவர
+ ும் வருக.
+URL:https://tamilisaisangam.in/events/students-annual-day-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-thol-isai-heritage-walk-2026@tamilisaisangam.in
+DTSTAMP:20260219T183000Z
+DTSTART:20260315T103000Z
+DTEND:20260315T123000Z
+SUMMARY:தொல் இசைக் களஞ்சியம் மரப
+ ு நடை
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2019-இல் திறக்கப்பட்ட தொல
+ ் இசைக் கலஞ்சியத்தின் பண்ட
+ ைய இசைக்கருவிகளைச் சுற்றிப
+ ் பார்க்கும் வழிகாட்டு நடை.\
+ nகட்டணம்: கட்டணம் இல்லை. அனை
+ வரும் வருக.
+URL:https://tamilisaisangam.in/events/thol-isai-heritage-walk-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2026@tamilisaisangam.in
+DTSTAMP:20251130T183000Z
+DTSTART;VALUE=DATE:20260111
+DTEND;VALUE=DATE:20260112
+SUMMARY:பொங்கல் திருவிழா இசைப் ப
+ ோட்டி 2026
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2026 ஜனவரி 11 அன்று நடைபெற்
+ ற பொங்கல் திருவிழா இசைப் போ
+ ட்டி.\nகட்டணம்: பிரிவுக்கேற்
+ ப ₹150 – ₹250
+URL:https://tamilisaisangam.in/events/pongal-music-competition-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pann-research-conference-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251222
+DTEND;VALUE=DATE:20251226
+SUMMARY:பண் ஆராய்ச்சிக் கூட்டம் 2
+ 025
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2025 டிசம்பர் 22 முதல் 25 வரை 
+ நடைபெற்ற பண்–இராக ஆராய்ச்ச
+ ிக் கூட்டம்.\nகட்டணம்: கட்டண
+ ம் இல்லை. அனைவரும் வருக.
+URL:https://tamilisaisangam.in/events/pann-research-conference-2025/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-isai-vizha-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251212
+DTEND;VALUE=DATE:20251224
+SUMMARY:தமிழிசை விழா 2025
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2025 டிசம்பர் 12 முதல் 23 வரை 
+ நடைபெற்ற 12 நாள் தமிழிசை விழ
+ ா.\nகட்டணம்: கட்டணம் இல்லை. அன
+ ைவரும் வருக.
+URL:https://tamilisaisangam.in/events/isai-vizha-2025/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

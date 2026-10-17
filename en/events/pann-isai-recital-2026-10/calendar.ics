@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Monthly Pann Isai Recital (October)
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-10@tamilisaisangam.in
+DTSTAMP:20260930T183000Z
+DTSTART:20261010T123000Z
+DTEND:20261010T143000Z
+SUMMARY:Monthly Pann Isai Recital (October)
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A monthly recital of ancient Tamil Panns\, 10 October 2026.\nFe
+ es: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/pann-isai-recital-2026-10/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

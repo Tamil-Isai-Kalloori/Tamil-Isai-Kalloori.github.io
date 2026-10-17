@@ -4,13 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Content Manager</title>
-  <!-- add netlify cms identity  comment this-->
-    <script src="https://unpkg.com/netlify-identity-widget@1.9.1/build/netlify-identity-widget.js"></script>
-
+    <title>Content Manager — தமிழ் இசைக் கல்லூரி</title>
+    <style>
+      /* Loading state while Decap boots */
+      body { margin: 0; background: #FAFAF5; color: #1A1A2E; font-family: system-ui, sans-serif; }
+    </style>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Decap CMS from CDN -->
+    <script src="https://unpkg.com/decap-cms@3.17.0/dist/decap-cms.js"></script>
+
+    <!--
+      Preview styles & templates.
+
+      Decap's preview pane is an iframe with its own document. Styles must be
+      registered via CMS.registerPreviewStyle() so they reach that document.
+      Components registered via CMS.registerPreviewTemplate() render inside it.
+
+      We register:
+        1. Google Fonts (4 families — the exact URLs from head.html)
+        2. The site stylesheet. Production serves it fingerprinted
+           (/css/main.min.<hash>.css), so register.js reads the real href
+           from the home page instead of assuming a fixed name.
+
+      Preview JS is loaded as a module AFTER decap-cms.js so the CMS globals
+      (window.CMS, window.h, window.createClass) are guaranteed to exist.
+    -->
+    <script type="module" src="/admin/preview/register.js"></script>
   </body>
 </html>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="tik-logo-title">
+  <title id="tik-logo-title">Tamil Isai Kalloori</title>
+  <!--
+    Yazh mark — the ancient Tamil bow-harp, the instrument of Sangam-era
+    Tamil Isai. The arch is both the curved instrument body and an echo of
+    the prabhavali (temple flame arch). Three string strokes span the
+    opening. The left foot curls inward — the yali (dragon) head that
+    terminates every yazh. Designed at 64×64 for 32px legibility.
+  -->
+
+  <!-- Arch — yazh body / prabhavali -->
+  <path d="M 10,56 Q 4,28 20,12 Q 32,2 44,12 Q 60,28 54,56"
+        fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Yali finial — the left foot curls inward, distinguishing this
+       from a generic arch. Visible even at 32px as a small hook. -->
+  <path d="M 10,56 C 14,52 18,54 16,58"
+        fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Three strings — the harp's taut strings, also readable as
+       the three pillars of Tamil Isai: vocal, instrumental, rhythmic -->
+  <line x1="22" y1="16" x2="22" y2="54" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <line x1="32" y1="8"  x2="32" y2="54" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <line x1="42" y1="16" x2="42" y2="54" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Bridge — horizontal bar anchoring the strings -->
+  <line x1="16" y1="54" x2="50" y2="54" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+</svg>

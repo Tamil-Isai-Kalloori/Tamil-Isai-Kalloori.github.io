@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:மாதாந்திரப் பண்ணிசை நி
+ கழ்ச்சி (செப்டம்பர்)
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-09@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART:20260919T123000Z
+DTEND:20260919T143000Z
+SUMMARY:மாதாந்திரப் பண்ணிசை நிக
+ ழ்ச்சி (செப்டம்பர்)
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:பண்டைய தமிழ்ப் பண்களைப
+ ் பாடிக் காட்டும் மாதாந்தி
+ ர நிகழ்ச்சி\, 19 செப்டம்பர் 2026.\
+ nகட்டணம்: கட்டணம் இல்லை. அனை
+ வரும் வருக.
+URL:https://tamilisaisangam.in/events/pann-isai-recital-2026-09/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

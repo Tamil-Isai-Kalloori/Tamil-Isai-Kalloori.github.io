@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:தமிழ் இசைப்பேரறிஞர் வி
+ ருது வழங்கும் விழா 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-perarignar-award-ceremony-2026@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART:20261212T123000Z
+DTEND:20261212T150000Z
+SUMMARY:தமிழ் இசைப்பேரறிஞர் விர
+ ுது வழங்கும் விழா 2026
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:தமிழிசை விழாவின் தொடக்
+ க நாளில் இசைப்பேரறிஞர் விர
+ ுது வழங்கப்படும்.\nகட்டணம்: 
+ கட்டணம் இல்லை. அனைவரும் வரு
+ க.
+URL:https://tamilisaisangam.in/events/perarignar-award-ceremony-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

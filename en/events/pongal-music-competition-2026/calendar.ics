@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pongal Thiruvizha Music Competition 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2026@tamilisaisangam.in
+DTSTAMP:20251130T183000Z
+DTSTART;VALUE=DATE:20260111
+DTEND;VALUE=DATE:20260112
+SUMMARY:Pongal Thiruvizha Music Competition 2026
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The Pongal music competition\, held on 11 January 2026.\nFees: 
+ ₹150 – ₹250 depending on category
+URL:https://tamilisaisangam.in/en/events/pongal-music-competition-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

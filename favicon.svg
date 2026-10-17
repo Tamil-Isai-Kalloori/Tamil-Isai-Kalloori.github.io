@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg{fill:#1A1A2E}
+    .mk{stroke:#FAFAF5}
+    @media(prefers-color-scheme:dark){
+      .bg{fill:#FAFAF5}
+      .mk{stroke:#1A1A2E}
+    }
+  </style>
+  <rect class="bg" width="32" height="32"/>
+  <path class="mk" fill="none" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter"
+    d="M5 7H19Q26 7 26 14Q26 18 22 18L18 18Q14 18 14 22L14 26M5 7V26"/>
+</svg>

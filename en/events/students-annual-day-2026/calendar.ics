@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Students' Annual Day Concert
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-students-annual-day-2026@tamilisaisangam.in
+DTSTAMP:20260809T183000Z
+DTSTART:20260829T113000Z
+DTEND:20260829T143000Z
+SUMMARY:Students' Annual Day Concert
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The annual day concert by students of Tamil Isai Kalloori\, 29 
+ August 2026.\nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/students-annual-day-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

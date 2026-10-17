@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Children's Thevaram Workshop
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-thevaram-workshop-2026-11@tamilisaisangam.in
+DTSTAMP:20261007T183000Z
+DTSTART:20261128T043000Z
+DTEND:20261128T073000Z
+SUMMARY:Children's Thevaram Workshop
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A three-hour workshop on singing Thevaram hymns\, for children 
+ aged 8 to 14.\nFees: ₹100 (includes workbook)
+URL:https://tamilisaisangam.in/en/events/thevaram-workshop-2026-11/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

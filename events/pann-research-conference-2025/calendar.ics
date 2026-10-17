@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:பண் ஆராய்ச்சிக் கூட்டம
+ ் 2025
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-research-conference-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251222
+DTEND;VALUE=DATE:20251226
+SUMMARY:பண் ஆராய்ச்சிக் கூட்டம் 2
+ 025
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2025 டிசம்பர் 22 முதல் 25 வரை 
+ நடைபெற்ற பண்–இராக ஆராய்ச்ச
+ ிக் கூட்டம்.\nகட்டணம்: கட்டண
+ ம் இல்லை. அனைவரும் வருக.
+URL:https://tamilisaisangam.in/events/pann-research-conference-2025/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:தமிழிசை விழா 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-isai-vizha-2026@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261224
+SUMMARY:தமிழிசை விழா 2026
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:1943 முதல் ஒவ்வோர் ஆண்டும
+ ் டிசம்பரில் நடைபெறும் 12 நா
+ ள் தமிழிசை விழா.\nகட்டணம்: கட
+ ்டணம் இல்லை. அனைவரும் வருக.
+URL:https://tamilisaisangam.in/events/isai-vizha-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

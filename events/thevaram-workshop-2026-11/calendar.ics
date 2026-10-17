@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:குழந்தைகளுக்கான தேவார
+ ப் பயிலரங்கு
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-thevaram-workshop-2026-11@tamilisaisangam.in
+DTSTAMP:20261007T183000Z
+DTSTART:20261128T043000Z
+DTEND:20261128T073000Z
+SUMMARY:குழந்தைகளுக்கான தேவாரப்
+  பயிலரங்கு
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:8 முதல் 14 வயதுக் குழந்தை
+ களுக்கான மூன்று மணி நேரத் த
+ ேவாரப் பாடல் பயிலரங்கு.\nகட்
+ டணம்: ₹100 (பயிலரங்குக் கையேடு
+  உட்பட)
+URL:https://tamilisaisangam.in/events/thevaram-workshop-2026-11/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

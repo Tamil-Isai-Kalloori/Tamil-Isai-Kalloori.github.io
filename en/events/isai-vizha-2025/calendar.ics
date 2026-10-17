@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Tamil Isai Vizha 2025
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-isai-vizha-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251212
+DTEND;VALUE=DATE:20251224
+SUMMARY:Tamil Isai Vizha 2025
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The 12-day Tamil Isai Vizha\, held from 12 to 23 December 2025.
+ \nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/isai-vizha-2025/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pongal Thiruvizha Music Competition 2027
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2027@tamilisaisangam.in
+DTSTAMP:20261009T183000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Pongal Thiruvizha Music Competition 2027
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:Vocal\, instrumental and Bharatanatyam contests in four age cat
+ egories\, held around Pongal.\nFees: ₹150 – ₹250 depending on catego
+ ry
+URL:https://tamilisaisangam.in/en/events/pongal-music-competition-2027/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

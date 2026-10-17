@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:மாணவர் ஆண்டு விழா இசை ந
+ ிகழ்ச்சி
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-students-annual-day-2026@tamilisaisangam.in
+DTSTAMP:20260809T183000Z
+DTSTART:20260829T113000Z
+DTEND:20260829T143000Z
+SUMMARY:மாணவர் ஆண்டு விழா இசை நிக
+ ழ்ச்சி
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:தமிழ் இசைக் கல்லூரி மாண
+ வர்கள் பங்கேற்ற ஆண்டு விழா 
+ இசை நிகழ்ச்சி\, 2026 ஆகஸ்ட் 29.\nக
+ ட்டணம்: கட்டணம் இல்லை. அனைவர
+ ும் வருக.
+URL:https://tamilisaisangam.in/events/students-annual-day-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

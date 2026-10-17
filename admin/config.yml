@@ -1,343 +1,1045 @@
+################################################################################
+# Decap CMS Configuration — Tamil Isai Kalloori
+#
+# Backend: GitHub repo (hugo-content submodule, mounted into Hugo as content/)
+# Auth: PKCE flow via client.html (no external OAuth server needed)
+# Multilingual: Tamil (ta) default + English (en)
+#
+# For local development, uncomment `local_backend: true` and run:
+#   npx decap-server
+#
+# WHAT THIS FILE EDITS
+#   Every `file:` and `folder:` below is a path inside the CONTENT repo
+#   (hugo-content-main), and every one of them exists. Each page is edited as two
+#   separate entries, one per language file (_index.ta.md and _index.en.md).
+#
+# WHY NOT i18n `multiple_files` FOR PAGES?
+#   Decap refuses it: for `files` collections only `single_file` i18n is
+#   allowed (config load fails with "i18n configuration for files collections is
+#   limited to single_file structure"). Folder collections would allow it, but
+#   would force one field list on pages with different shapes. So pages are
+#   plain per-locale files, and the root `i18n` block below is kept only to
+#   document the site's locales. Nothing in it is applied to a collection.
+#
+# NOT EDITABLE HERE, ON PURPOSE
+#   * Site settings (data/settings.yaml). That file lives in the BUILDER repo
+#     (hugo-builder-main/data/), and this CMS backend can only write to the
+#     content repo. A collection pointing at it would save to a new orphan file
+#     that nothing reads, so there is none. Contact details are changed in the
+#     builder repo until settings.yaml moves into the content repo.
+#   * top_bar/top_bar.*.md. No template reads it any more.
+#   * translationKey, layout, url, draft: hidden fields (see field_library).
+################################################################################
 
-###############################################################################################################
-## For local testing     #
-# npx decap-server       # 
-# local_backend: true    #
-##########################
+# local_backend: true
+
+# CMS interface language
+locale: en
+
+# Editorial workflow — gives staff draft -> in review -> ready -> publish
+publish_mode: editorial_workflow
+
+# --------------------------------------------------------------------------
+# Backend — GitHub with PKCE auth
 #
-#
-# auth making reference : https://github.com/nuzulul/decap-cms-google-apps-script/tree/main
-#
-###############################################################################################################
+# PRODUCTION SETUP REQUIRED:
+# 1. Register a GitHub OAuth App for tamilisaisangam.in
+# 2. Set the OAuth callback URL to https://tamilisaisangam.in/admin/client.html
+# 3. The client.html file handles the PKCE flow — no server needed
+# --------------------------------------------------------------------------
 backend:
   name: github
-  repo : Tamil-Isai-Kalloori/hugo-content
-  branch: main  # or whatever your branch is
-  site_domain: tamil-isai-kalloori.github.io  # your website domain for preview
-  base_url: https://tamil-isai-kalloori.github.io # PKCE client.html hostname (just the base domain, no path)
-  auth_endpoint: /admin/client.html # PKCE client.html path
+  repo: Tamil-Isai-Kalloori/hugo-content
+  branch: main
+  site_domain: tamil-isai-kalloori.github.io
+  # PKCE auth — client.html in /admin/ handles the OAuth redirect.
+  # base_url is required: without it Decap sends the login to api.netlify.com.
+  # When the site moves to tamilisaisangam.in, change both lines above/below
+  # and the GitHub OAuth App callback URL to https://tamilisaisangam.in/admin/client.html
+  base_url: https://tamil-isai-kalloori.github.io
+  auth_endpoint: /admin/client.html
 
+# --------------------------------------------------------------------------
+# Media — uploads go to /uploads/ in the content repo
+# --------------------------------------------------------------------------
 media_folder: "/uploads"
 public_folder: "/uploads"
 
+# --------------------------------------------------------------------------
+# Site locales (documentation only, see note at the top of this file)
+# --------------------------------------------------------------------------
+i18n:
+  structure: multiple_files
+  locales: [ta, en]
+  default_locale: ta
+
+
+field_library:
+  title: &f_title { label: "Title", name: title, widget: string }
+  description: &f_desc { label: "Description (search / social summary)", name: description, widget: string }
+  weight: &f_weight { label: "Sort order (weight)", name: weight, widget: number, value_type: int, hint: "Lower numbers come first in menus and section listings." }
+  body: &f_body { label: "Page text", name: body, widget: markdown }
+  hero: &f_hero { label: "Hero image", name: hero_image, widget: image, required: false }
+  # Never editable by staff: changing these would break the ta/en pairing, the
+  # template binding or the page address. Hidden widgets keep the stored value.
+  translationKey: &f_key { name: translationKey, widget: hidden, required: false }
+  layout: &f_layout { name: layout, widget: hidden, required: false }
+  url: &f_url { name: url, widget: hidden, required: false }
+  draft: &f_draft { name: draft, widget: hidden, required: false }
+  images: &f_images
+    label: "Images"
+    name: images
+    widget: list
+    required: false
+    summary: "{{fields.caption}}"
+    hint: "The caption is also the image's alt text."
+    fields:
+      - { label: "Image", name: src, widget: image }
+      - { label: "Caption", name: caption, widget: string }
+  person_fields: &f_person_fields
+    - { label: "Name", name: name, widget: string }
+    - { label: "Role", name: role, widget: string, required: false }
+    - { label: "Photo", name: photo, widget: image, required: false }
+    - { label: "Tenure", name: tenure, widget: string, required: false, hint: "For example 1943 - 1948" }
 
 collections:
-  - name: "settings"
-    label: "Site Settings"
+
+  # ======== Home ========
+  - name: home
+    label: "Home"
+    delete: false
+    files:
+    - name: home_page_ta
+      label: "Home page text — Tamil (தமிழ்)"
+      file: _index.ta.md
+      fields: &home_page_ta_fields
+        - *f_title
+        - *f_key
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_images
+        - label: "Home page sections"
+          name: sections
+          widget: object
+          required: false
+          hint: "Heading and intro for each block of the home page."
+          fields:
+            - label: "Statement"
+              name: statement
+              widget: object
+              required: false
+              fields:
+                - { label: "Heading", name: heading, widget: string, required: false }
+                - { label: "Intro", name: intro, widget: text, required: false }
+            - label: "Courses"
+              name: courses
+              widget: object
+              required: false
+              fields:
+                - { label: "Heading", name: heading, widget: string, required: false }
+                - { label: "Intro", name: intro, widget: text, required: false }
+            - label: "Isai Vizha"
+              name: vizha
+              widget: object
+              required: false
+              fields:
+                - { label: "Heading", name: heading, widget: string, required: false }
+                - { label: "Intro", name: intro, widget: text, required: false }
+            - label: "Museum"
+              name: museum
+              widget: object
+              required: false
+              fields:
+                - { label: "Heading", name: heading, widget: string, required: false }
+                - { label: "Intro", name: intro, widget: text, required: false }
+            - label: "Closing"
+              name: closing
+              widget: object
+              required: false
+              fields:
+                - { label: "Heading", name: heading, widget: string, required: false }
+                - { label: "Intro", name: intro, widget: text, required: false }
+        - *f_body
+    - name: home_page_en
+      label: "Home page text — English"
+      file: _index.en.md
+      fields: *home_page_ta_fields
+    - name: home_slider_ta
+      label: "Home slider — Tamil (தமிழ்)"
+      file: home/slider.ta.md
+      fields: &home_slider_ta_fields
+        - { name: title, widget: hidden, required: false }
+        - *f_key
+        - { name: weight, widget: hidden, required: false }
+        - *f_draft
+        - { name: description, widget: hidden, required: false }
+        - label: "Slides"
+          name: slides
+          widget: list
+          required: false
+          summary: "{{fields.heading}}"
+          hint: "The home page hero currently uses the image of the first slide only."
+          fields:
+            - { label: "Image", name: image, widget: image }
+            - { label: "Heading", name: heading, widget: string }
+            - { label: "Subheading", name: subheading, widget: string, required: false }
+            - label: "Button"
+              name: cta
+              widget: object
+              required: false
+              fields:
+                - { label: "Button text", name: text, widget: string }
+                - { label: "Button link", name: url, widget: string }
+    - name: home_slider_en
+      label: "Home slider — English"
+      file: home/slider.en.md
+      fields: *home_slider_ta_fields
+
+  # ======== About ========
+  - name: about
+    label: "About"
+    delete: false
+    files:
+    - name: about_ta
+      label: "About the Sangam — Tamil (தமிழ்)"
+      file: about/_index.ta.md
+      fields: &about_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: about_en
+      label: "About the Sangam — English"
+      file: about/_index.en.md
+      fields: *about_ta_fields
+    - name: about_history_ta
+      label: "Sangam history — Tamil (தமிழ்)"
+      file: about/history/_index.ta.md
+      fields: &about_history_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: about_history_en
+      label: "Sangam history — English"
+      file: about/history/_index.en.md
+      fields: *about_history_ta_fields
+    - name: about_trustees_ta
+      label: "Trustees — Tamil (தமிழ்)"
+      file: about/trustees/_index.ta.md
+      fields: &about_trustees_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - label: "People"
+          name: people
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          fields: *f_person_fields
+        - *f_body
+    - name: about_trustees_en
+      label: "Trustees — English"
+      file: about/trustees/_index.en.md
+      fields: *about_trustees_ta_fields
+    - name: about_leaders_ta
+      label: "Presidents & secretaries — Tamil (தமிழ்)"
+      file: about/leaders/_index.ta.md
+      fields: &about_leaders_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_images
+        - label: "Presidents"
+          name: presidents
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Only the photo is read: it is matched to the president whose start year (data/presidents.yaml) the tenure begins with. Names and years come from the Presidents data file."
+          fields:
+            - { label: "Name", name: name, widget: string }
+            - { label: "Tenure", name: tenure, widget: string, hint: "Must begin with the start year, e.g. 1943–1948" }
+            - { label: "Photo", name: photo, widget: image, required: false }
+        - label: "Vice-presidents"
+          name: vice_presidents
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Stored on the page; the leaders template does not display this list yet."
+          fields:
+            - { label: "Name", name: name, widget: string }
+            - { label: "Tenure", name: tenure, widget: string }
+            - { label: "Photo", name: photo, widget: image, required: false }
+        - label: "Honorary secretaries"
+          name: secretaries
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Stored on the page; the leaders template does not display this list yet."
+          fields:
+            - { label: "Name", name: name, widget: string }
+            - { label: "Role", name: role, widget: string }
+            - { label: "Tenure", name: tenure, widget: string }
+        - *f_body
+    - name: about_leaders_en
+      label: "Presidents & secretaries — English"
+      file: about/leaders/_index.en.md
+      fields: *about_leaders_ta_fields
+
+  # ======== Isai Vizha ========
+  - name: isai_vizha
+    label: "Isai Vizha"
+    delete: false
+    files:
+    - name: vizha_ta
+      label: "Isai Vizha (hub) — Tamil (தமிழ்)"
+      file: isai-vizha/_index.ta.md
+      fields: &vizha_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_layout
+        - *f_images
+        - *f_body
+    - name: vizha_en
+      label: "Isai Vizha (hub) — English"
+      file: isai-vizha/_index.en.md
+      fields: *vizha_ta_fields
+    - name: vizha_pann_ta
+      label: "Pann research — Tamil (தமிழ்)"
+      file: isai-vizha/pann-research/_index.ta.md
+      fields: &vizha_pann_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: vizha_pann_en
+      label: "Pann research — English"
+      file: isai-vizha/pann-research/_index.en.md
+      fields: *vizha_pann_ta_fields
+    - name: vizha_awards_ta
+      label: "Awards — Tamil (தமிழ்)"
+      file: isai-vizha/awards/_index.ta.md
+      fields: &vizha_awards_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: vizha_awards_en
+      label: "Awards — English"
+      file: isai-vizha/awards/_index.en.md
+      fields: *vizha_awards_ta_fields
+    - name: vizha_guests_ta
+      label: "Chief guests — Tamil (தமிழ்)"
+      file: isai-vizha/chief-guests/_index.ta.md
+      fields: &vizha_guests_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: vizha_guests_en
+      label: "Chief guests — English"
+      file: isai-vizha/chief-guests/_index.en.md
+      fields: *vizha_guests_ta_fields
+
+  # ======== College ========
+  - name: college
+    label: "College"
+    delete: false
+    files:
+    - name: college_ta
+      label: "College (overview) — Tamil (தமிழ்)"
+      file: college/_index.ta.md
+      fields: &college_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: college_en
+      label: "College (overview) — English"
+      file: college/_index.en.md
+      fields: *college_ta_fields
+    - name: college_history_ta
+      label: "College history — Tamil (தமிழ்)"
+      file: college/history/_index.ta.md
+      fields: &college_history_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - *f_body
+    - name: college_history_en
+      label: "College history — English"
+      file: college/history/_index.en.md
+      fields: *college_history_ta_fields
+    - name: college_principals_ta
+      label: "Principals — Tamil (தமிழ்)"
+      file: college/principals/_index.ta.md
+      fields: &college_principals_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - label: "People"
+          name: people
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          fields: *f_person_fields
+        - *f_body
+    - name: college_principals_en
+      label: "Principals — English"
+      file: college/principals/_index.en.md
+      fields: *college_principals_ta_fields
+    - name: college_day_ta
+      label: "Day college — Tamil (தமிழ்)"
+      file: college/day-college/_index.ta.md
+      fields: &college_day_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: college_day_en
+      label: "Day college — English"
+      file: college/day-college/_index.en.md
+      fields: *college_day_ta_fields
+    - name: college_evening_ta
+      label: "Evening college — Tamil (தமிழ்)"
+      file: college/evening-college/_index.ta.md
+      fields: &college_evening_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: college_evening_en
+      label: "Evening college — English"
+      file: college/evening-college/_index.en.md
+      fields: *college_evening_ta_fields
+    - name: college_grade_ta
+      label: "Grade exams — Tamil (தமிழ்)"
+      file: college/grade-exams/_index.ta.md
+      fields: &college_grade_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: college_grade_en
+      label: "Grade exams — English"
+      file: college/grade-exams/_index.en.md
+      fields: *college_grade_ta_fields
+    - name: college_online_ta
+      label: "Online classes — Tamil (தமிழ்)"
+      file: college/online-classes/_index.ta.md
+      fields: &college_online_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_body
+    - name: college_online_en
+      label: "Online classes — English"
+      file: college/online-classes/_index.en.md
+      fields: *college_online_ta_fields
+    - name: college_distance_ta
+      label: "Distance education — Tamil (தமிழ்)"
+      file: college/distance-education/_index.ta.md
+      fields: &college_distance_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: college_distance_en
+      label: "Distance education — English"
+      file: college/distance-education/_index.en.md
+      fields: *college_distance_ta_fields
+    - name: college_openuni_ta
+      label: "Open university — Tamil (தமிழ்)"
+      file: college/open-university/_index.ta.md
+      fields: &college_openuni_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_body
+    - name: college_openuni_en
+      label: "Open university — English"
+      file: college/open-university/_index.en.md
+      fields: *college_openuni_ta_fields
+    - name: college_faculty_ta
+      label: "Faculty — Tamil (தமிழ்)"
+      file: college/faculty/_index.ta.md
+      fields: &college_faculty_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+        - label: "Departments"
+          name: departments
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Faculty list is pending from the college. When present, it is shown instead of the flat People list."
+          fields:
+            - { label: "Department name", name: name, widget: string }
+            - label: "People"
+              name: people
+              widget: list
+              required: false
+              summary: "{{fields.name}}"
+              fields: *f_person_fields
+        - label: "People"
+          name: people
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          fields: *f_person_fields
+    - name: college_faculty_en
+      label: "Faculty — English"
+      file: college/faculty/_index.en.md
+      fields: *college_faculty_ta_fields
+
+  # ======== Museum & Library ========
+  - name: museum_library
+    label: "Museum & Library"
+    delete: false
+    files:
+    - name: museum_ta
+      label: "Museum (Thol Isai Kalanjiyam) — Tamil (தமிழ்)"
+      file: museum/_index.ta.md
+      fields: &museum_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - label: "Instruments"
+          name: instruments
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          fields:
+            - { label: "Name (Tamil)", name: name, widget: string }
+            - { label: "Name (English)", name: name_en, widget: string, required: false }
+            - { label: "Type", name: type, widget: select, options: ["தாளக் கருவி", "நரம்புக் கருவி", "காற்றுக் கருவி"] }
+            - { label: "Image", name: image, widget: image }
+        - *f_images
+        - *f_body
+        - { label: "Visitor info: Opening hours", name: museum_hours_ta, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Admission", name: museum_admission_ta, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Location", name: museum_location_ta, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Accessibility", name: museum_accessibility_ta, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+    - name: museum_en
+      label: "Museum (Thol Isai Kalanjiyam) — English"
+      file: museum/_index.en.md
+      fields: &museum_en_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - label: "Instruments"
+          name: instruments
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          fields:
+            - { label: "Name (English)", name: name, widget: string }
+            - { label: "Name (Tamil)", name: name_ta, widget: string, required: false }
+            - { label: "Type", name: type, widget: select, options: [Percussion, String, Wind] }
+            - { label: "Image", name: image, widget: image }
+        - *f_images
+        - *f_body
+        - { label: "Visitor info: Opening hours", name: museum_hours, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Admission", name: museum_admission, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Location", name: museum_location, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+        - { label: "Visitor info: Accessibility", name: museum_accessibility, widget: string, required: false, hint: "Optional. Leave empty to keep the built-in text." }
+    - name: library_ta
+      label: "Library — Tamil (தமிழ்)"
+      file: library/_index.ta.md
+      fields: &library_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - label: "Book categories"
+          name: categories
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Stored on the page; the library page does not display this list yet."
+          fields:
+            - { label: "Name (Tamil)", name: name, widget: string }
+            - { label: "Name (English)", name: name_en, widget: string, required: false }
+        - *f_body
+    - name: library_en
+      label: "Library — English"
+      file: library/_index.en.md
+      fields: &library_en_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_hero
+        - *f_images
+        - label: "Book categories"
+          name: categories
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "Stored on the page; the library page does not display this list yet."
+          fields:
+            - { label: "Name (English)", name: name, widget: string }
+            - { label: "Name (Tamil)", name: name_ta, widget: string, required: false }
+        - *f_body
+
+  # ======== Gallery & Media ========
+  - name: gallery_media
+    label: "Gallery & Media"
+    delete: false
+    files:
+    - name: gallery_ta
+      label: "Gallery — Tamil (தமிழ்)"
+      file: gallery/_index.ta.md
+      fields: &gallery_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_hero
+        - label: "Albums"
+          name: albums
+          widget: list
+          required: false
+          summary: "{{fields.title}}"
+          hint: "Only the title and the images are displayed. Slug and description are stored but not shown."
+          fields:
+            - { label: "Title", name: title, widget: string }
+            - { label: "Slug", name: slug, widget: string, hint: "Lower-case, hyphens, e.g. carnatic-vocal-concerts" }
+            - { label: "Description", name: description, widget: text, required: false }
+            - *f_images
+        - *f_body
+    - name: gallery_en
+      label: "Gallery — English"
+      file: gallery/_index.en.md
+      fields: *gallery_ta_fields
+    - name: media_ta
+      label: "Media coverage — Tamil (தமிழ்)"
+      file: media/_index.ta.md
+      fields: &media_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_hero
+        - label: "Media clips"
+          name: clips
+          widget: list
+          required: false
+          summary: "{{fields.source}} — {{fields.headline}}"
+          fields:
+            - { label: "Source", name: source, widget: string }
+            - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+            - { label: "Type", name: type, widget: select, options: [print, broadcast] }
+            - { label: "Headline", name: headline, widget: string, required: false }
+            - { label: "Link", name: link, widget: string, required: false }
+            - { label: "File format", name: format, widget: string, required: false, hint: "e.g. pdf" }
+        - *f_body
+    - name: media_en
+      label: "Media coverage — English"
+      file: media/_index.en.md
+      fields: *media_ta_fields
+    - name: news_page_ta
+      label: "News page — Tamil (தமிழ்)"
+      file: news/_index.ta.md
+      fields: &news_page_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_body
+    - name: news_page_en
+      label: "News page — English"
+      file: news/_index.en.md
+      fields: *news_page_ta_fields
+
+  # ======== Events ========
+  # Section pages: the hub plus the Upcoming / Past list pages. The list pages
+  # have no body text of their own beyond the short intro; the lists are built
+  # from the event entries in the collection below.
+  - name: events_pages
+    label: "Events — section pages"
+    delete: false
+    files:
+      - name: events_page_ta
+        label: "Events hub — Tamil (தமிழ்)"
+        file: events/_index.ta.md
+        fields: &events_page_fields
+          - *f_title
+          - *f_key
+          - *f_url
+          - *f_weight
+          - *f_draft
+          - *f_desc
+          - *f_body
+      - name: events_page_en
+        label: "Events hub — English"
+        file: events/_index.en.md
+        fields: *events_page_fields
+      - name: events_upcoming_ta
+        label: "Upcoming events page — Tamil (தமிழ்)"
+        file: events/upcoming/_index.ta.md
+        fields: &events_list_page_fields
+          - *f_title
+          - *f_key
+          - *f_url
+          - *f_weight
+          - *f_draft
+          - *f_desc
+          - *f_layout
+          - { name: outputs, widget: hidden, required: false }
+          - *f_body
+      - name: events_upcoming_en
+        label: "Upcoming events page — English"
+        file: events/upcoming/_index.en.md
+        fields: *events_list_page_fields
+      - name: events_past_ta
+        label: "Past events page — Tamil (தமிழ்)"
+        file: events/past/_index.ta.md
+        fields: *events_list_page_fields
+      - name: events_past_en
+        label: "Past events page — English"
+        file: events/past/_index.en.md
+        fields: *events_list_page_fields
+
+  # One entry per event. Tamil and English are saved as a pair of files
+  # (events/<slug>.ta.md + events/<slug>.en.md). Fields marked `i18n: true` are
+  # written in each language; `i18n: duplicate` fields are copied into both
+  # files, so the two halves always carry the same dates and category.
+  # Upcoming / Past is NOT a field: the site decides from event_start / event_end
+  # when it is built, and a daily rebuild moves finished events across.
+  - name: events
+    label: "Events"
+    label_singular: "Event"
+    folder: events
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    # Filename comes from the "Web address" field below (plain ASCII), so the
+    # Tamil and English files share one name: <web-address>.ta.md / .en.md.
+    path: "{{slug}}"
+    slug: "{{fields.slug}}"
+    # Only event entries; the _index section pages in the same folder have no
+    # entry_type and are edited in "Events — section pages" above.
+    filter: { field: entry_type, value: event }
+    i18n: true
+    summary: "{{event_start | date('YYYY-MM-DD')}} — {{title}}"
+    sortable_fields: [event_start, title, date]
+    fields:
+      - { label: "Title", name: title, widget: string, i18n: true }
+      - { label: "Web address", name: slug, widget: string, i18n: duplicate, pattern: ["^[a-z0-9-]+$", "Lowercase English letters, digits and hyphens only"],
+          hint: "Used in the page address and file name, e.g. pann-isai-recital-2026-12. Do not change it after the event is published." }
+      - { name: translationKey, widget: hidden, required: false, i18n: duplicate }
+      - { name: entry_type, widget: hidden, default: event, i18n: duplicate }
+      - { name: outputs, widget: hidden, default: [html, calendar], i18n: duplicate }
+      - { name: url, widget: hidden, required: false, i18n: true }
+      - { name: draft, widget: hidden, required: false, default: false, i18n: duplicate }
+      - { label: "Announcement date", name: date, widget: datetime, i18n: duplicate,
+          date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD",
+          hint: "The day the event is announced on the site (today or earlier). This is NOT the event date: a date in the future hides the page. The event's own date is set below." }
+      - { label: "Starts", name: event_start, widget: datetime, i18n: duplicate,
+          date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: false,
+          hint: "Date and time in Indian Standard Time (+05:30). For all-day events the time is ignored." }
+      - { label: "Ends", name: event_end, widget: datetime, i18n: duplicate, required: false,
+          date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: false,
+          hint: "Leave empty for a single-session event. Multi-day events: the last day." }
+      - { label: "All-day / multi-day (no set times)", name: all_day, widget: boolean, default: false, required: false, i18n: duplicate }
+      - label: "Category"
+        name: category
+        widget: select
+        i18n: duplicate
+        options:
+          - { label: "Festival", value: festival }
+          - { label: "Concert", value: concert }
+          - { label: "Conference", value: conference }
+          - { label: "Competition", value: competition }
+          - { label: "Ceremony", value: ceremony }
+          - { label: "Workshop", value: workshop }
+          - { label: "Exhibition", value: exhibition }
+      - { label: "Venue", name: venue, widget: string, i18n: true }
+      - { label: "Address", name: address, widget: string, required: false, i18n: true }
+      - { label: "Image", name: image, widget: image, required: false, i18n: duplicate, hint: "A photograph of music or the venue. Do not use portraits or manuscripts." }
+      - { label: "Summary", name: summary, widget: string, i18n: true, hint: "One sentence, shown in the event lists." }
+      - { label: "Registration link", name: registration_url, widget: string, required: false, i18n: true }
+      - { label: "Registration deadline", name: registration_deadline, widget: datetime, required: false, i18n: duplicate,
+          date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Fee", name: fee, widget: string, required: false, i18n: true, hint: "For example: Free entry, or Rs. 150." }
+      - { label: "Sample record", name: sample, widget: boolean, default: false, required: false, i18n: duplicate,
+          hint: "Switch ON only for placeholder events. Real events must leave this OFF." }
+      - { label: "Description", name: body, widget: markdown, i18n: true }
+
+  # ======== Admissions & Contact ========
+  - name: admissions_contact
+    label: "Admissions & Contact"
+    delete: false
+    files:
+    - name: admissions_ta
+      label: "Admissions — Tamil (தமிழ்)"
+      file: admissions/_index.ta.md
+      fields: &admissions_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: admissions_en
+      label: "Admissions — English"
+      file: admissions/_index.en.md
+      fields: *admissions_ta_fields
+    - name: contact_ta
+      label: "Contact — Tamil (தமிழ்)"
+      file: contact/_index.ta.md
+      fields: &contact_ta_fields
+        - *f_title
+        - *f_key
+        - *f_url
+        - *f_weight
+        - *f_draft
+        - *f_desc
+        - *f_layout
+        - *f_body
+    - name: contact_en
+      label: "Contact — English"
+      file: contact/_index.en.md
+      fields: *contact_ta_fields
+
+  # ======== Navigation ========
+  - name: navigation
+    label: "Navigation"
     delete: false
     editor:
       preview: false
     files:
-      - name: "settings"
-        label: "Top Bar Settings"
-        file: "data/settings.yaml"
-        fields:
-          - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "Working Days", name: "hours_days", widget: "string" }
-          - { label: "Working Hours", name: "hours_time", widget: "string" }
-#####################################################
+    - name: navbar_ta
+      label: "Site menu — Tamil (தமிழ்)"
+      file: navbar/navbar.ta.md
+      fields: &navbar_ta_fields
+        - { name: title, widget: hidden, required: false }
+        - *f_key
+        - { name: weight, widget: hidden, required: false }
+        - *f_draft
+        - { name: description, widget: hidden, required: false }
+        - { label: "Logo", name: logo, widget: image, required: false }
+        - label: "Menu items"
+          name: menu
+          widget: list
+          required: false
+          summary: "{{fields.name}}"
+          hint: "The header shows only items with weight 2-6; the Admissions item (cta) is drawn as the button. Reordering weights changes the header."
+          fields:
+            - { label: "Name", name: name, widget: string }
+            - { label: "Link", name: url, widget: string, hint: "Tamil menu: /about/ — English menu: /en/about/" }
+            - { label: "Weight", name: weight, widget: number, value_type: int }
+            - { label: "Show as button", name: cta, widget: boolean, required: false, default: false }
+            - label: "Sub-menu"
+              name: children
+              widget: list
+              required: false
+              summary: "{{fields.name}}"
+              fields:
+                - { label: "Name", name: name, widget: string }
+                - { label: "Link", name: url, widget: string }
+                - { label: "Weight", name: weight, widget: number, value_type: int }
+    - name: navbar_en
+      label: "Site menu — English"
+      file: navbar/navbar.en.md
+      fields: *navbar_ta_fields
 
-######## Home Page ################################
-
-##################################################
-
-## Home Slider Section 
-  - name: "slider"
-    label: "Home Slider"
-    folder: "home"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - label: "Slides"
-        name: "slides"
-        widget: "list"
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Heading", name: "heading", widget: "string" }
-  
-  - name: "events"
-    label: "Home / Events Section"
+  # ======== Data tables (data/*.yaml) ========
+  # Not per-locale: one file serves both languages, so bilingual values are
+  # separate fields (name_ta / name_en). Saving drops the explanatory comments
+  # at the top of each YAML file; the data itself is unchanged.
+  - name: site_data
+    label: "Data tables"
+    delete: false
+    i18n: false
+    editor:
+      preview: false
     files:
-      - label: "Events"
-        name: "events"
-        file: "home/events/events.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-
-          - label: "Events List"
-            name: "events"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Category", name: "category", widget: "string" }
-              - { label: "Time", name: "time", widget: "string" }
-              - { label: "Location", name: "location", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Description", name: "description", widget: "text" }
-
-
-# History Page Configuration
-  - name: "history"
-    label: "History Page"
-    folder: "history"
-    create: false
-    slug: "index"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Hero Image", name: "hero_image", widget: "image" }
-      - { label: "Hero Title", name: "hero_title", widget: "string" }
-      - label: "Breadcrumbs"
-        name: "breadcrumbs"
-        widget: "list"
-        fields:
-          - { label: "Name", name: "name", widget: "string" }
-          - { label: "URL", name: "url", widget: "string", required: false }
-
-      - { label: "About Subheading", name: "about_subheading", widget: "string" }
-      - { label: "About Title", name: "about_title", widget: "string" }
-
-      # ⭐ Dynamic ABOUT SECTIONS
-      - label: "About Sections"
-        name: "about_sections"
-        widget: "list"
-        summary: "{{fields.title}}"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Text", name: "text", widget: "text" }
-          - { label: "Image", name: "image", widget: "image" }
-
-          # ⭐ Reverse toggle (for alternating layout)
-          - label: "Reverse Layout (image left)"
-            name: "reverse"
-            widget: "boolean"
-            default: false
-
-      - { label: "About Video", name: "about_video", widget: "string", required: false }
-
-      - label: "Stats"
-        name: "stats"
-        widget: "list"
-        fields:
-          - { label: "Number", name: "number", widget: "number" }
-          - { label: "Label", name: "label", widget: "string" }
-      - { label: "Bottom Image", name: "bottom_banner", widget: "image" }
-
-# Navbar configuration for Decap CMS
-  - name: "navbar"
-    label: "Navbar"
-    files:
-      - label: "Navbar"
-        name: "navbar"
-        file: "navbar/navbar.md"
+      - name: data_awards
+        label: "Awards (Isai Perarignar & Pann Isai Arignar)"
+        file: data/awards.yaml
         format: yaml
         fields:
-          - { label: "Logo", name: "logo", widget: "image", required: false }
-          - label: "Menu Items"
-            name: "menu"
-            widget: "list"
+          - label: "Isai Perarignar awardees"
+            name: isai_per_arignar
+            widget: list
+            summary: "{{fields.year}} — {{fields.name_en}}"
+            fields: &award_fields
+              - { label: "Year", name: year, widget: number, value_type: int }
+              - { label: "Name (Tamil)", name: name_ta, widget: string }
+              - { label: "Name (English)", name: name_en, widget: string, required: false }
+          - label: "Pann Isai Arignar awardees"
+            name: pann_isai_arignar
+            widget: list
+            summary: "{{fields.year}} — {{fields.name_en}}"
+            fields: *award_fields
+      - name: data_chief_guests
+        label: "Chief guests"
+        file: data/chief_guests.yaml
+        format: yaml
+        fields:
+          - label: "Chief guests"
+            name: chief_guests
+            widget: list
+            summary: "{{fields.year}} — {{fields.name_en}}"
             fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-              - { label: "CTA", name: "cta", widget: "boolean", required: false }
-
-# Isai Vizha page
-  - name: "Isai_Vizha"
-    label: "Isai Vizha"
-    files: 
-      - label: "Hero Section"
-        name: "hero_section"
-        file: "isai_vizha/_index.md"
-        format: "yaml"
+              - { label: "Year", name: year, widget: string, hint: "Text, because some are ranges: 1943 - 1944" }
+              - { label: "Name (Tamil)", name: name_ta, widget: string }
+              - { label: "Name (English)", name: name_en, widget: string, required: false }
+      - name: data_panns
+        label: "Panns and ragams"
+        file: data/panns.yaml
+        format: yaml
         fields:
-          - { label: "Image", name: "hero_image", widget: "image" }
-          - { label: "Title", name: "hero_title", widget: "string" }
-          - label: "Breadcrumbs"
-            name: "breadcrumbs"
-            widget: "list"
+          - label: "Pann / ragam pairs"
+            name: panns
+            widget: list
+            summary: "{{fields.pann_ta}} — {{fields.ragam_ta}}"
             fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-
-
-      - label: "Time Line"
-        name: "timeline"
-        file: "isai_vizha/timeline.md"
-        format: "yaml"
+              - { label: "Pann (Tamil)", name: pann_ta, widget: string }
+              - { label: "Ragam (Tamil)", name: ragam_ta, widget: string }
+              - { label: "Pann (English)", name: pann_en, widget: string, required: false }
+              - { label: "Ragam (English)", name: ragam_en, widget: string, required: false }
+      - name: data_presidents
+        label: "Presidents"
+        file: data/presidents.yaml
+        format: yaml
         fields:
-          - { label: "Month", name: "month", widget:"string"}
-          - label: "Events"
-            name: "timeline"
-            widget: "list"
+          - label: "Presidents"
+            name: presidents
+            widget: list
+            summary: "{{fields.year_from}} — {{fields.name_en}}"
             fields:
-              - { label: "Date", name: "date", widget: "string" }
-              - label: "Schedule"
-                name: "schedule"
-                widget: "list"
-                fields:
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "Time", name: "time", widget: "string" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Description", name: "description", widget: "string" }
-                  
-      - label: "Description Paragraphs"
-        name: "isai_vizha_paragraphs"
-        file: "isai_vizha/isai_vizha_paragraphs.md"
-        format: "frontmatter"
+              - { label: "From year", name: year_from, widget: number, value_type: int }
+              - { label: "To year", name: year_to, widget: number, value_type: int, required: false, hint: "Leave empty for the current president." }
+              - { label: "Name (Tamil)", name: name_ta, widget: string }
+              - { label: "Name (English)", name: name_en, widget: string, required: false }
+      - name: data_courses
+        label: "Courses"
+        file: data/courses.yaml
+        format: yaml
         fields:
-          - label: "Description Paragraphs"
-            name: "paragraphs"
-            widget: "list"
+          - label: "Courses"
+            name: courses
+            widget: list
+            summary: "{{fields.title_en}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Content", name: "content", widget: "text" }
-              - { label: "Link", name: "link", widget: "string" }
-## pann research
-  - name: "Pann_Research"
-    label: "Pann Research"
-    files: 
-      - label: "Pann isai Hero Section"
-        name: "pann_isai_hero_section"
-        file: "isai_vizha/pann_research/_index.md"
-        format: "yaml"
-        fields:
-          - { label: "Image", name: "hero_image", widget: "image" }
-          - { label: "Title", name: "hero_title", widget: "string" }
-          - label: "Breadcrumbs"
-            name: "breadcrumbs"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-
-      - label: "Description"
-        name: "pann_research_paragraphs"
-        file: "isai_vizha/pann_research/paragraphs.md"
-        format: "frontmatter"
-        fields:
-          - { label: "Image", name: "research_image", widget: "image" }
-          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
- 
-      - label: "Table Data"
-        name: "pann_research_table_data"
-        file: "isai_vizha/pann_research/tables.md"
-        format: "frontmatter"
-        fields:
-          - label: "Tables"
-            name: "tables"
-            widget: "list"
-            fields:
-              - label: "Table Name"
-                name: "name"
-                widget: "string"
-
-              - label: "Rows"
-                name: "rows"
-                widget: "list"
-                fields:
-                  - label: "Pann"
-                    name: "pann"
-                    widget: "string"
-                  - label: "Ragam"
-                    name: "ragam"
-                    widget: "string"
-## awards
-  - name: "Isai Vizha Awards"
-    label: "Isai Vizha Awards"
-    files: 
-      - label: "Hero Section"
-        name: "awards_hero_section"
-        file: "isai_vizha/awards/_index.md"
-        format: "frontmatter"
-        fields:
-          - { label: "Image", name: "hero_image", widget: "image" }
-          - { label: "Title", name: "hero_title", widget: "string" }
-          - label: "Breadcrumbs"
-            name: "breadcrumbs"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
- 
-      - label: "Description"
-        name: "awards_paragraphs"
-        file: "isai_vizha/awards/paragraphs.md"
-        format: "frontmatter"
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
- 
-      - label: "Table Data"
-        name: "awards_table_data"
-        file: "isai_vizha/awards/tables.md"
-        format: "frontmatter"
-        fields:
-          - label: "Tables"
-            name: "tables"
-            widget: "list"
-            fields:
-              - label: "Table Name"
-                name: "name"
-                widget: "string"
-
-              - label: "Rows"
-                name: "rows"
-                widget: "list"
-                fields:
-                  - label: "Name"
-                    name: "name"
-                    widget: "string"
-                  - label: "Year"
-                    name: "year"
-                    widget: "string"
-
-## isai vizha special guest
-  - name: "Isai Vizha Special Guest"
-    label: "Isai Vizha Spcial Guest"
-    files: 
-      - label: "Hero Section"
-        name: "sg_hero_section"
-        file: "isai_vizha/special_guest/_index.md"
-        format: "frontmatter"
-        fields:
-          - { label: "Image", name: "hero_image", widget: "image" }
-          - { label: "Title", name: "hero_title", widget: "string" }
-          - label: "Breadcrumbs"
-            name: "breadcrumbs"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
- 
-      - label: "Description"
-        name: "sg_paragraphs"
-        file: "isai_vizha/special_guest/paragraphs.md"
-        format: "frontmatter"
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Paragraphs", name: "paragraphs", widget: "string" }
- 
-      - label: "Table Data"
-        name: "sg_table_data"
-        file: "isai_vizha/special_guest/tables.md"
-        format: "frontmatter"
-        fields:
-          - label: "Tables"
-            name: "tables"
-            widget: "list"
-            fields:
-              - label: "Table Name"
-                name: "name"
-                widget: "string"
-
-              - label: "Rows"
-                name: "rows"
-                widget: "list"
-                fields:
-                  - label: "Name"
-                    name: "name"
-                    widget: "string"
-                  - label: "Year"
-                    name: "year"
-                    widget: "string"
+              - { label: "Id", name: id, widget: string, hint: "Short unique code, e.g. ma-music-vocal. Do not change for existing courses." }
+              - { label: "Title (Tamil)", name: title_ta, widget: string }
+              - { label: "Title (English)", name: title_en, widget: string }
+              - { label: "Type", name: type, widget: select, options: [day, evening, grade_exam, online, distance], hint: "Decides which course list the course appears in." }
+              - { label: "Duration", name: duration, widget: string, required: false }
+              - { label: "Eligibility (Tamil)", name: eligibility_ta, widget: text, required: false }
+              - { label: "Eligibility (English)", name: eligibility_en, widget: text, required: false }
+              - { label: "College", name: college, widget: select, options: [day, evening, tisgec, online, distance] }
+              - { label: "Affiliation", name: affiliation, widget: string, required: false }

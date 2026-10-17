@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Pann Research Conference 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-research-conference-2026@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261226
+SUMMARY:Pann Research Conference 2026
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The Pann–raga research conference\, held since 1949\, from 22
+  to 25 December.\nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/pann-research-conference-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:பொங்கல் திருவிழா இசைப்
+  போட்டி 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2026@tamilisaisangam.in
+DTSTAMP:20251130T183000Z
+DTSTART;VALUE=DATE:20260111
+DTEND;VALUE=DATE:20260112
+SUMMARY:பொங்கல் திருவிழா இசைப் ப
+ ோட்டி 2026
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2026 ஜனவரி 11 அன்று நடைபெற்
+ ற பொங்கல் திருவிழா இசைப் போ
+ ட்டி.\nகட்டணம்: பிரிவுக்கேற்
+ ப ₹150 – ₹250
+URL:https://tamilisaisangam.in/events/pongal-music-competition-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

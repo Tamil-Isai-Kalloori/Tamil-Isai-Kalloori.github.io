@@ -1,0 +1,93 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Past Events
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-10@tamilisaisangam.in
+DTSTAMP:20260930T183000Z
+DTSTART:20261010T123000Z
+DTEND:20261010T143000Z
+SUMMARY:Monthly Pann Isai Recital (October)
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A monthly recital of ancient Tamil Panns\, 10 October 2026.\nFe
+ es: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/pann-isai-recital-2026-10/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pann-isai-recital-2026-09@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART:20260919T123000Z
+DTEND:20260919T143000Z
+SUMMARY:Monthly Pann Isai Recital (September)
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A monthly recital of ancient Tamil Panns\, 19 September 2026.\n
+ Fees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/pann-isai-recital-2026-09/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-students-annual-day-2026@tamilisaisangam.in
+DTSTAMP:20260809T183000Z
+DTSTART:20260829T113000Z
+DTEND:20260829T143000Z
+SUMMARY:Students' Annual Day Concert
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The annual day concert by students of Tamil Isai Kalloori\, 29 
+ August 2026.\nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/students-annual-day-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-thol-isai-heritage-walk-2026@tamilisaisangam.in
+DTSTAMP:20260219T183000Z
+DTSTART:20260315T103000Z
+DTEND:20260315T123000Z
+SUMMARY:Thol Isai Kalanjiyam Heritage Walk
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A guided walk through the ancient instruments of the Thol Isai 
+ Kalanjiyam museum\, which opened in 2019.\nFees: Free entry. All are welco
+ me.
+URL:https://tamilisaisangam.in/en/events/thol-isai-heritage-walk-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2026@tamilisaisangam.in
+DTSTAMP:20251130T183000Z
+DTSTART;VALUE=DATE:20260111
+DTEND;VALUE=DATE:20260112
+SUMMARY:Pongal Thiruvizha Music Competition 2026
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The Pongal music competition\, held on 11 January 2026.\nFees: 
+ ₹150 – ₹250 depending on category
+URL:https://tamilisaisangam.in/en/events/pongal-music-competition-2026/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-pann-research-conference-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251222
+DTEND;VALUE=DATE:20251226
+SUMMARY:Pann Research Conference 2025
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The Pann–raga research conference\, held from 22 to 25 Decemb
+ er 2025.\nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/pann-research-conference-2025/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:event-isai-vizha-2025@tamilisaisangam.in
+DTSTAMP:20251031T183000Z
+DTSTART;VALUE=DATE:20251212
+DTEND;VALUE=DATE:20251224
+SUMMARY:Tamil Isai Vizha 2025
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:The 12-day Tamil Isai Vizha\, held from 12 to 23 December 2025.
+ \nFees: Free entry. All are welcome.
+URL:https://tamilisaisangam.in/en/events/isai-vizha-2025/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

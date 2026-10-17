@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Thol Isai Kalanjiyam Heritage Walk
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-thol-isai-heritage-walk-2026@tamilisaisangam.in
+DTSTAMP:20260219T183000Z
+DTSTART:20260315T103000Z
+DTEND:20260315T123000Z
+SUMMARY:Thol Isai Kalanjiyam Heritage Walk
+LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
+DESCRIPTION:A guided walk through the ancient instruments of the Thol Isai 
+ Kalanjiyam museum\, which opened in 2019.\nFees: Free entry. All are welco
+ me.
+URL:https://tamilisaisangam.in/en/events/thol-isai-heritage-walk-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

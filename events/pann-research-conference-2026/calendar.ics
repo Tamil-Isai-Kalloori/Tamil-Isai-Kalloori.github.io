@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:பண் ஆராய்ச்சிக் கூட்டம
+ ் 2026
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pann-research-conference-2026@tamilisaisangam.in
+DTSTAMP:20260831T183000Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261226
+SUMMARY:பண் ஆராய்ச்சிக் கூட்டம் 2
+ 026
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:1949 முதல் நடைபெறும் பண்–
+ இராக ஆராய்ச்சிக் கூட்டம்\, ட
+ ிசம்பர் 22 முதல் 25 வரை.\nகட்டணம
+ ்: கட்டணம் இல்லை. அனைவரும் வ
+ ருக.
+URL:https://tamilisaisangam.in/events/pann-research-conference-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

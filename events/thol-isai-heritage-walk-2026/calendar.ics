@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:தொல் இசைக் களஞ்சியம் ம
+ ரபு நடை
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-thol-isai-heritage-walk-2026@tamilisaisangam.in
+DTSTAMP:20260219T183000Z
+DTSTART:20260315T103000Z
+DTEND:20260315T123000Z
+SUMMARY:தொல் இசைக் களஞ்சியம் மரப
+ ு நடை
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:2019-இல் திறக்கப்பட்ட தொல
+ ் இசைக் கலஞ்சியத்தின் பண்ட
+ ைய இசைக்கருவிகளைச் சுற்றிப
+ ் பார்க்கும் வழிகாட்டு நடை.\
+ nகட்டணம்: கட்டணம் இல்லை. அனை
+ வரும் வருக.
+URL:https://tamilisaisangam.in/events/thol-isai-heritage-walk-2026/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

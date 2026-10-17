@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tamil Isai Sangam//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:பொங்கல் திருவிழா இசைப்
+  போட்டி 2027
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:event-pongal-music-competition-2027@tamilisaisangam.in
+DTSTAMP:20261009T183000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:பொங்கல் திருவிழா இசைப் ப
+ ோட்டி 2027
+LOCATION:ராஜா அண்ணாமலை மன்றம்\, எண
+ ். 5\, எஸ்பிளனேட் சாலை\, சென்னை 
+ 600 108
+DESCRIPTION:குரலிசை\, கருவியிசை\, பரத
+ நாட்டியம் ஆகியவற்றில் நான்
+ கு வயதுப் பிரிவுகளாக நடைபெ
+ றும் பொங்கல் திருவிழா இசைப
+ ் போட்டி.\nகட்டணம்: பிரிவுக்
+ கேற்ப ₹150 – ₹250
+URL:https://tamilisaisangam.in/events/pongal-music-competition-2027/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
