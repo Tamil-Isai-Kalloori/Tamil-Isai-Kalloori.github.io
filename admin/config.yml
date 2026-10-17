@@ -52,11 +52,8 @@ backend:
   repo: Tamil-Isai-Kalloori/hugo-content
   branch: main
   site_domain: tamil-isai-kalloori.github.io
-  # PKCE auth — client.html in /admin/ handles the OAuth redirect.
-  # base_url is required: without it Decap sends the login to api.netlify.com.
-  # When the site moves to tamilisaisangam.in, change both lines above/below
-  # and the GitHub OAuth App callback URL to https://tamilisaisangam.in/admin/client.html
   base_url: https://tamil-isai-kalloori.github.io
+  # PKCE auth — client.html in /admin/ handles the OAuth redirect
   auth_endpoint: /admin/client.html
 
 # --------------------------------------------------------------------------
