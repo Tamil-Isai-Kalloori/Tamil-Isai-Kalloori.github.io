@@ -13,8 +13,8 @@ backend:
   name: github
   repo : Tamil-Isai-Kalloori/hugo-content
   branch: main  # or whatever your branch is
-  site_domain: https://studious-carnival-5g576qrpp5g93q5j-1313.app.github.dev/  # your website domain for preview
-  base_url: https://studious-carnival-5g576qrpp5g93q5j-1313.app.github.dev/ # PKCE client.html hostname (just the base domain, no path)
+  site_domain: tamil-isai-kalloori.github.io  # your website domain for preview
+  base_url: https://tamil-isai-kalloori.github.io # PKCE client.html hostname (just the base domain, no path)
   auth_endpoint: /admin/client.html # PKCE client.html path
 
 media_folder: "/uploads"
