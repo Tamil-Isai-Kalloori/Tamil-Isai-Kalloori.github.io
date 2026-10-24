@@ -6,18 +6,6 @@ METHOD:PUBLISH
 X-WR-CALNAME:Upcoming Events
 X-WR-TIMEZONE:Asia/Kolkata
 BEGIN:VEVENT
-UID:event-nagaswaram-tavil-concert-2026-10@tamilisaisangam.in
-DTSTAMP:20260930T183000Z
-DTSTART:20261024T130000Z
-DTEND:20261024T150000Z
-SUMMARY:Nagaswaram & Tavil Evening Concert
-LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
-DESCRIPTION:An evening of nagaswaram and tavil\, the traditional auspicious
-  music of Tamil Nadu.\nFees: Free entry. All are welcome.
-URL:https://tamilisaisangam.in/en/events/nagaswaram-tavil-concert-2026-10/
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:event-pann-isai-recital-2026-11@tamilisaisangam.in
 DTSTAMP:20261004T183000Z
 DTSTART:20261114T123000Z
