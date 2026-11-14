@@ -6,18 +6,6 @@ METHOD:PUBLISH
 X-WR-CALNAME:Upcoming Events
 X-WR-TIMEZONE:Asia/Kolkata
 BEGIN:VEVENT
-UID:event-pann-isai-recital-2026-11@tamilisaisangam.in
-DTSTAMP:20261004T183000Z
-DTSTART:20261114T123000Z
-DTEND:20261114T143000Z
-SUMMARY:Monthly Pann Isai Recital (November)
-LOCATION:Raja Annamalai Mandram\, No. 5\, Esplanade Road\, Chennai 600 108
-DESCRIPTION:A monthly stage recital of ancient Tamil Panns.\nFees: Free ent
- ry. All are welcome.
-URL:https://tamilisaisangam.in/en/events/pann-isai-recital-2026-11/
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
 UID:event-thevaram-workshop-2026-11@tamilisaisangam.in
 DTSTAMP:20261007T183000Z
 DTSTART:20261128T043000Z
